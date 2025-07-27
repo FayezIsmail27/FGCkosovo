@@ -377,7 +377,275 @@ html, body { height: 100%; font-family: Arial, sans-serif; }
 
 
 
+
+
+
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(40,53,112,255);
+  box-shadow: rgba(0,0,0,0.7);
+  color: rgb(255, 255, 255);
+  padding: 1.5rem 2rem;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-left {
+  text-align: left;
+  font-weight: bold;
+}
+
+.footer-center {
+  font-size: 1.1rem;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 12px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+
+.footer-icon:hover {
+  transform: scale(1.15);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
+
+
+
+
+
+@media (max-width: 800px) {
+  .team-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 1rem;
+    height: auto !important;   
+    overflow: hidden;
+  }
+
+  .member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    height: auto !important;   
+  }
+
+  .member-photo img {
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .member-details {
+    width: 100%;
+    padding: 0;
+  }
+
+  .member-details h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  .member-details h3 {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+  .member-details p,
+  .member-teams {
+    font-size: clamp(0.85rem, 3vw, 1rem);
+  }
+
+  #team-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto 1rem;
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    z-index: 2;               
+    background: #2854a4;
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .arrow.prev {
+    left: 1rem;
+  }
+  .arrow.next {
+    right: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-section .logo {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-section .main-content {
+    gap: 1rem;
+    padding: 0 1.5rem;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .main-section {
+    height: auto;
+    padding: 2rem 1rem;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .main-section .main-content {
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .main-section .logo {
+    max-width: 140px;
+    margin-bottom: 1rem;
+  }
+
+  .greeting h1 {
+    font-size: 2rem;
+  }
+
+  .greeting p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .countdown-container {
+    padding: 1rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .countdown-container h2 {
+    font-size: 1.25rem;
+  }
+
+  #countdown {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+
+  #countdown span {
+    display: inline-block;
+    min-width: 40px;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #4a73b5;
+  z-index: 1000;
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 1000;
+  color: #4a73b5;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 1000;
+  color: #fff; 
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    flex-wrap: nowrap;
+    padding: 1rem;
+    position: relative;
+    background-color: #7e8183; 
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-grow: 1;
+    color: #fff;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 0 0 12px 12px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem 1.2rem;
+    z-index: 999;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  .site-nav.show {
+    display: flex;
+  }
+
+  .site-nav a {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .site-nav a:hover {
+    color: #ffd700; 
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+@media (max-width: 700px){
+  .sponsor-facts{ flex-wrap:wrap; }
+  .fact-box{ flex:1 1 240px; }
+}
