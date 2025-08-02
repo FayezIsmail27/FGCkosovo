@@ -290,28 +290,3 @@ document.querySelectorAll(".post-carousel").forEach(post => {
 
 
 
-const modal = document.getElementById('linktree-modal');
-const btn = document.getElementById('linktree-btn');
-const textLink = document.getElementById('linktree-text');
-const span = document.querySelector('.modal .close');
-
-const openModal = (e) => {
-  e.preventDefault();
-  modal.style.display = "block";
-};
-
-if (btn) btn.onclick = openModal;
-if (textLink) textLink.onclick = openModal;
-
-span.onclick = () => {
-  modal.style.display = "none";
-};
-
-window.onclick = (e) => {
-  if (e.target == modal) {
-    modal.style.display = "none";
-  }
-};
-
-
-
