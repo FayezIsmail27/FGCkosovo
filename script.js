@@ -1,5 +1,6 @@
 // script.js
 
+// 1. Greetings rotation (unchanged)
 const greetings = [
   'Përshëndetje!', 'Hi!', 'こんにちは!', '안녕하세요!', '你好!',
   '!مرحبا', 'नमस्ते!', 'Привет!', 'Bonjour!', 'Hola!',
@@ -14,6 +15,7 @@ setInterval(() => {
 }, 1500);
 
 
+// 2. Members data, now with a `symbols` array instead of football/F1
 const members = [
   {
     name: 'Leona',
@@ -29,7 +31,7 @@ const members = [
     photo: 'pics/lando.png'
   },
   {
-    name: 'Younger sister',
+    name: 'Klea',
     position: 'My new friend',
     desc: 'I forgot her name and I feel bad about it, but she is a great person and I love her. Remind me of her name if you see this. (Dont tell her I forgot it, please)',
     symbols: [
@@ -125,18 +127,22 @@ let currentMember = 0;
 
 function showMember(i) {
   const m = members[i];
+  // update text fields
   document.getElementById('member-name').textContent     = m.name;
   document.getElementById('member-position').textContent = m.position;
   document.getElementById('member-desc').textContent     = m.desc;
 
+  // update the 5 symbol boxes
   m.symbols.forEach((src, idx) => {
     const imgEl = document.getElementById(`symbol${idx + 1}`);
     if (imgEl) imgEl.src = src;
   });
 
+  // update photo
   document.getElementById('member-image').src = m.photo;
 }
 
+// prev / next controls
 document.getElementById('prev-member').addEventListener('click', () => {
   currentMember = (currentMember - 1 + members.length) % members.length;
   showMember(currentMember);
@@ -146,9 +152,11 @@ document.getElementById('next-member').addEventListener('click', () => {
   showMember(currentMember);
 });
 
+// initial display
 showMember(currentMember);
 
 
+// 3. Country tab switching (unchanged)
 document.addEventListener('DOMContentLoaded', () => {
   const learnTab  = document.getElementById('learn-tab');
   const playTab   = document.getElementById('play-tab');
@@ -170,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// 4. Header hide-on-scroll (unchanged)
 let lastScroll = 0;
 const header = document.querySelector('.site-header');
 window.addEventListener('scroll', () => {
@@ -181,6 +190,8 @@ window.addEventListener('scroll', () => {
   }
   lastScroll = currentScroll;
 });
+
+// 5. Countdown timer (unchanged)
 function updateCountdown() {
   const target = new Date(2025, 9, 27, 0, 0, 0);
   let diff = target - new Date();
@@ -211,6 +222,7 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+// 6. Smooth-scroll nav links (unchanged)
 document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -223,6 +235,83 @@ document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
   });
 });
 
+// 7. Mobile menu toggle (unchanged)
 document.getElementById("menu-toggle").addEventListener("click", function () {
   document.getElementById("site-nav").classList.toggle("show");
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const learnTab    = document.getElementById('learn-tab');
+  const playTab     = document.getElementById('play-tab');
+  const learnPane   = document.getElementById('learn-content');
+  const playPane    = document.getElementById('play-content');
+
+  learnTab.addEventListener('click', () => {
+    learnTab.classList.add('active');
+    playTab.classList.remove('active');
+    learnPane.classList.add('active');
+    playPane.classList.remove('active');
+  });
+
+  playTab.addEventListener('click', () => {
+    playTab.classList.add('active');
+    learnTab.classList.remove('active');
+    playPane.classList.add('active');
+    learnPane.classList.remove('active');
+  });
+});
+
+
+
+document.querySelectorAll(".post-carousel").forEach(post => {
+  const imgs = post.querySelectorAll("img");
+  const left = post.querySelector(".nav.left");
+  const right = post.querySelector(".nav.right");
+  let index = 0;
+
+  const show = i => {
+    imgs.forEach(img => img.classList.remove("active"));
+    imgs[i].classList.add("active");
+  };
+
+  left.onclick = () => {
+    index = (index - 1 + imgs.length) % imgs.length;
+    show(index);
+  };
+
+  right.onclick = () => {
+    index = (index + 1) % imgs.length;
+    show(index);
+  };
+});
+
+
+
+const modal = document.getElementById('linktree-modal');
+const btn = document.getElementById('linktree-btn');
+const textLink = document.getElementById('linktree-text');
+const span = document.querySelector('.modal .close');
+
+const openModal = (e) => {
+  e.preventDefault();
+  modal.style.display = "block";
+};
+
+if (btn) btn.onclick = openModal;
+if (textLink) textLink.onclick = openModal;
+
+span.onclick = () => {
+  modal.style.display = "none";
+};
+
+window.onclick = (e) => {
+  if (e.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+
+
