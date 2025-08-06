@@ -341,13 +341,6 @@ html, body { height: 100%; font-family: Arial, sans-serif; }
   opacity: 0.8;
 }
 
-#country-section::before {
-  bottom: 0;
-  background-image: url('pics/lowerthingi.png');  
-  height: 60px;
-  opacity: 0.8;
-}
-
 
 
 
@@ -1369,7 +1362,6 @@ html {
 
   }
 }
-
 
 
 
