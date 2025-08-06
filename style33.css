@@ -1,0 +1,362 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #111;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.profile-header {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.profile-pic img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.top-row button {
+  background: #efefef;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.posts-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* All posts same height alignment */
+.post {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Image wrapper */
+.image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Images inside carousels */
+.image-frame img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.image-frame img.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Nav arrows */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  padding: 5px 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: none;
+  z-index: 2;
+}
+
+.post:hover .nav {
+  display: block;
+}
+
+.nav.left { left: 10px; }
+.nav.right { right: 10px; }
+
+/* Caption box under the post */
+.post:hover::after {
+  content: attr(data-user) " • " attr(data-caption) " CulturalShowcase with Team Kosova🤍.. " attr(data-likes);
+  position: absolute;
+  bottom: -60px;
+  width: 100%;
+  text-align: center;
+  background: white;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  border-radius: 0 0 12px 12px;
+  z-index: 3;
+}
+
+
+
+/* Keep all posts the same size */
+.post {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Make sure video fills the box like images do */
+.post video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  z-index: 1; /* ensure it's above the hover background */
+  position: relative;
+}
+
+.post:hover::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: white;
+  border-radius: 15px;
+  z-index: 0; /* behind video/image */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+.modal {
+  display: none; /* This hides it initially */
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  color: #111;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-content li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.modal-content a {
+  text-decoration: none;
+  color: #007aff;
+}
+
+
+
+.close {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.side-pattern {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 8.5%;
+  background-image: url('pics/333-removebg-preview.png');
+  background-repeat: repeat-y;
+  background-size: contain;
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.left-pattern {
+  left: 0;
+}
+
+.right-pattern {
+  right: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-pic img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .top-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stats {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .posts-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .post {
+    width: 90vw;
+    height: 320px;
+  }
+
+  .side-pattern {
+    display: none;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+
+  .nav {
+    font-size: 1.5rem;
+    padding: 3px 8px;
+  }
+
+  .post:hover::after {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-pic img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .stats {
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .bio {
+    margin-top: 0.5rem;
+    padding: 0 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Side patterns removed on phone */
+  .side-pattern {
+    display: none;
+  }
+
+  /* Keep posts in one horizontal scroll row */
+  .posts-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .post {
+    flex: 0 0 auto;
+    width: 280px;
+    height: 320px;
+  }
+
+  /* Optional: remove hover effects for mobile clarity */
+  .post:hover::before,
+  .post:hover::after {
+    display: none;
+  }
+}
