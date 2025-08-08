@@ -1,6 +1,3 @@
-// script.js
-
-// 1. Greetings rotation (unchanged)
 const greetings = [
   'Përshëndetje!', 'Hi!', 'こんにちは!', '안녕하세요!', '你好!',
   '!مرحبا', 'नमस्ते!', 'Привет!', 'Bonjour!', 'Hola!',
@@ -15,7 +12,6 @@ setInterval(() => {
 }, 1500);
 
 
-// 2. Members data, now with a `symbols` array instead of football/F1
 const members = [
   {
     name: 'Leona',
@@ -33,7 +29,7 @@ const members = [
   {
     name: 'Klea',
     position: 'My new friend',
-    desc: 'I forgot her name and I feel bad about it, but she is a great person and I love her. Remind me of her name if you see this. (Dont tell her I forgot it, please)',
+    desc: 'Youngest sister, K-pop fan, pinrest girl.',
     symbols: [
       'pics/Real_Madrid_CF.svg.png',
       'pics/mclarenr.png',
@@ -46,7 +42,7 @@ const members = [
   {
     name: 'Amar',
     position: 'The GOAT',
-    desc: 'Amar is a 16-year-old with a passion for programming. Growing up, he always had technology around him, and his curiosity about how things work led to his interests in computers at a young age. He wrote his first lines of code at 10, and since then, programming has become his main passion. He also loves playing basketball and enjoys learning new things about astronomy.',
+    desc: 'Amar is a 17-year-old with a passion for programming. Growing up, he always had technology around him, and his curiosity about how things work led to his interests in computers at a young age. He wrote his first lines of code at 10, and since then, programming has become his main passion. He also loves playing basketball and enjoys learning new things about astronomy.',
     symbols: [
       'pics/Real_Madrid_CF.svg.png',
       'pics/mclarenr.png',
@@ -84,7 +80,7 @@ const members = [
   },
   {
     name: 'Era',
-    position: 'Designer',
+    position: 'She left, maybe, idk',
     desc: 'Era is a high school student at UBT. In her free time, she loves reading, spending time with her family and exploring activities that broaden her knowledge, particularly in robotics and other tech-related fields. She finds her first time participating in FGC an amazing experience that will help her to further improve her skills and connect with others who share her interests. She also loves traveling and is beyond excited to meet all of you.',
     symbols: [
       'pics/Real_Madrid_CF.svg.png',
@@ -127,22 +123,18 @@ let currentMember = 0;
 
 function showMember(i) {
   const m = members[i];
-  // update text fields
   document.getElementById('member-name').textContent     = m.name;
   document.getElementById('member-position').textContent = m.position;
   document.getElementById('member-desc').textContent     = m.desc;
 
-  // update the 5 symbol boxes
   m.symbols.forEach((src, idx) => {
     const imgEl = document.getElementById(`symbol${idx + 1}`);
     if (imgEl) imgEl.src = src;
   });
 
-  // update photo
   document.getElementById('member-image').src = m.photo;
 }
 
-// prev / next controls
 document.getElementById('prev-member').addEventListener('click', () => {
   currentMember = (currentMember - 1 + members.length) % members.length;
   showMember(currentMember);
@@ -156,7 +148,6 @@ document.getElementById('next-member').addEventListener('click', () => {
 showMember(currentMember);
 
 
-// 3. Country tab switching (unchanged)
 document.addEventListener('DOMContentLoaded', () => {
   const learnTab  = document.getElementById('learn-tab');
   const playTab   = document.getElementById('play-tab');
@@ -178,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 4. Header hide-on-scroll (unchanged)
 let lastScroll = 0;
 const header = document.querySelector('.site-header');
 window.addEventListener('scroll', () => {
@@ -193,7 +183,6 @@ window.addEventListener('scroll', () => {
 
 
 
-// 6. Smooth-scroll nav links (unchanged)
 document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -206,7 +195,6 @@ document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
   });
 });
 
-// 7. Mobile menu toggle (unchanged)
 document.getElementById("menu-toggle").addEventListener("click", function () {
   document.getElementById("site-nav").classList.toggle("show");
 });
@@ -316,10 +304,8 @@ window.onclick = (e) => {
 
 
 
-// countdown target
 const countToDate = new Date('October 27, 2025 00:00:00').getTime();
 
-// update per second
 function updateCountdown() {
   const now      = Date.now();
   const diff     = Math.max(0, countToDate - now);
@@ -373,3 +359,145 @@ function flip(flipCard, newNumber) {
 
   flipCard.append(topFlip, bottomFlip);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const learnTab  = document.getElementById('learn-tab');
+  const playTab   = document.getElementById('play-tab');
+  const learnPane = document.getElementById('learn-content');
+  const playPane  = document.getElementById('play-content');
+
+  learnTab.addEventListener('click', () => {
+    learnTab.classList.add('active');
+    playTab.classList.remove('active');
+    learnPane.classList.add('active');
+    playPane.classList.remove('active');
+  });
+  playTab.addEventListener('click', () => {
+    playTab.classList.add('active');
+    learnTab.classList.remove('active');
+    playPane.classList.add('active');
+    learnPane.classList.remove('active');
+  });
+
+  const slides       = [
+    'slides/Slide1.JPG',
+    'slides/Slide2.JPG',
+    'slides/Slide3.JPG',
+    'slides/Slide4.JPG',
+    'slides/Slide5.JPG',
+    'slides/Slide6.JPG',
+    'slides/Slide7.JPG',
+    'slides/Slide8.JPG'
+  ];
+  let   currentIndex = 0;
+
+  const imgEl         = document.getElementById('slide-img');
+  const prevBtn       = document.getElementById('prev-btn');
+  const nextBtn       = document.getElementById('next-btn');
+  const counterEl     = document.getElementById('slide-counter');
+  const fsBtn         = document.getElementById('fullscreen-btn');
+  const moreBtn       = document.getElementById('more-btn');
+  const slideshow     = document.querySelector('.slideshow');
+
+  const overviewBtn     = document.getElementById('overview-btn');
+  const overviewOverlay = document.getElementById('overview-overlay');
+  const overviewPanel   = document.querySelector('.overview-panel');
+  const overviewGrid    = document.getElementById('overview-grid');
+  const overviewBack    = document.getElementById('overview-back');
+
+  // — showSlide: update image, counter & currentIndex —
+  function showSlide(i) {
+    currentIndex        = (i + slides.length) % slides.length;
+    imgEl.src           = slides[currentIndex];
+    imgEl.alt           = `Slide ${currentIndex + 1}`;
+    counterEl.textContent = `${currentIndex + 1} of ${slides.length}`;
+  }
+
+  // — Prev/Next buttons —
+  prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+  nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+
+  // — Fullscreen toggle —
+  fsBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      (slideshow.requestFullscreen
+        || slideshow.webkitRequestFullscreen
+        || slideshow.mozRequestFullScreen
+      ).call(slideshow);
+    } else {
+      (document.exitFullscreen
+        || document.webkitExitFullscreen
+        || document.mozCancelFullScreen
+      ).call(document);
+    }
+  });
+
+  moreBtn.addEventListener('click', () => {
+    console.log('More options clicked');
+  });
+
+  slides.forEach((src, idx) => {
+    const item = document.createElement('div');
+    item.className = 'overview-item';
+
+    const thumb = document.createElement('img');
+    thumb.src       = src;
+    thumb.alt       = `Slide ${idx + 1}`;
+    thumb.tabIndex  = 0;  // focusable
+    thumb.dataset.index = idx;
+    thumb.addEventListener('click', () => {
+      showSlide(idx);
+      overviewOverlay.style.display = 'none';
+    });
+    thumb.addEventListener('keydown', e => {
+      if (e.key === 'Enter') thumb.click();
+    });
+
+    const label = document.createElement('span');
+    label.textContent = idx + 1;
+
+    item.appendChild(thumb);
+    item.appendChild(label);
+    overviewGrid.appendChild(item);
+  });
+
+  // — Open & close overview overlay —
+  overviewBtn.addEventListener('click', () => {
+    overviewOverlay.style.display = 'flex';
+    overviewPanel.focus();
+  });
+  overviewBack.addEventListener('click', () => {
+    overviewOverlay.style.display = 'none';
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') overviewOverlay.style.display = 'none';
+  });
+
+  // — Initialize slideshow —
+  showSlide(0);
+});
+const downloadBtn = document.getElementById('more-btn');
+downloadBtn.addEventListener('click', () => {
+  // Adjust this URL to point at your actual .pptx or .pdf file
+  const url      = 'Team Kosova (1).pptx';
+  const filename = url.split('/').pop();
+
+  const a = document.createElement('a');
+  a.href    = url;
+  a.download= filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+});
