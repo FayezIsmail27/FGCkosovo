@@ -1,3 +1,6 @@
+// script.js
+
+// 1. Greetings rotation (unchanged)
 const greetings = [
   'Përshëndetje!', 'Hi!', 'こんにちは!', '안녕하세요!', '你好!',
   '!مرحبا', 'नमस्ते!', 'Привет!', 'Bonjour!', 'Hola!',
@@ -12,6 +15,7 @@ setInterval(() => {
 }, 1500);
 
 
+// 2. Members data, now with a `symbols` array instead of football/F1
 const members = [
   {
     name: 'Leona',
@@ -26,10 +30,10 @@ const members = [
     ],
     photo: 'pics/lando.png'
   },
-  {
-    name: 'Klea',
-    position: 'My new friend',
-    desc: 'Youngest sister, K-pop fan, pinrest girl.',
+    {
+    name: 'Amar',
+    position: 'The GOAT',
+    desc: 'Amar is a 17-year-old with a passion for programming. Growing up, he always had technology around him, and his curiosity about how things work led to his interests in computers at a young age. He wrote his first lines of code at 10, and since then, programming has become his main passion. He also loves playing basketball and enjoys learning new things about astronomy.',
     symbols: [
       'pics/Real_Madrid_CF.svg.png',
       'pics/mclarenr.png',
@@ -40,9 +44,9 @@ const members = [
     photo: 'pics/lando.png'
   },
   {
-    name: 'Amar',
-    position: 'The GOAT',
-    desc: 'Amar is a 17-year-old with a passion for programming. Growing up, he always had technology around him, and his curiosity about how things work led to his interests in computers at a young age. He wrote his first lines of code at 10, and since then, programming has become his main passion. He also loves playing basketball and enjoys learning new things about astronomy.',
+    name: 'Klea',
+    position: 'My new friend',
+    desc: 'Youngest sister, K-pop fan, pinterest girl.',
     symbols: [
       'pics/Real_Madrid_CF.svg.png',
       'pics/mclarenr.png',
@@ -123,18 +127,22 @@ let currentMember = 0;
 
 function showMember(i) {
   const m = members[i];
+  // update text fields
   document.getElementById('member-name').textContent     = m.name;
   document.getElementById('member-position').textContent = m.position;
   document.getElementById('member-desc').textContent     = m.desc;
 
+  // update the 5 symbol boxes
   m.symbols.forEach((src, idx) => {
     const imgEl = document.getElementById(`symbol${idx + 1}`);
     if (imgEl) imgEl.src = src;
   });
 
+  // update photo
   document.getElementById('member-image').src = m.photo;
 }
 
+// prev / next controls
 document.getElementById('prev-member').addEventListener('click', () => {
   currentMember = (currentMember - 1 + members.length) % members.length;
   showMember(currentMember);
@@ -148,6 +156,7 @@ document.getElementById('next-member').addEventListener('click', () => {
 showMember(currentMember);
 
 
+// 3. Country tab switching (unchanged)
 document.addEventListener('DOMContentLoaded', () => {
   const learnTab  = document.getElementById('learn-tab');
   const playTab   = document.getElementById('play-tab');
@@ -169,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// 4. Header hide-on-scroll (unchanged)
 let lastScroll = 0;
 const header = document.querySelector('.site-header');
 window.addEventListener('scroll', () => {
@@ -183,6 +193,7 @@ window.addEventListener('scroll', () => {
 
 
 
+// 6. Smooth-scroll nav links (unchanged)
 document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -195,6 +206,7 @@ document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
   });
 });
 
+// 7. Mobile menu toggle (unchanged)
 document.getElementById("menu-toggle").addEventListener("click", function () {
   document.getElementById("site-nav").classList.toggle("show");
 });
@@ -304,8 +316,10 @@ window.onclick = (e) => {
 
 
 
+// countdown target
 const countToDate = new Date('October 27, 2025 00:00:00').getTime();
 
+// update per second
 function updateCountdown() {
   const now      = Date.now();
   const diff     = Math.max(0, countToDate - now);
@@ -373,6 +387,7 @@ function flip(flipCard, newNumber) {
 
 
     document.addEventListener('DOMContentLoaded', () => {
+  // — Tab switching —
   const learnTab  = document.getElementById('learn-tab');
   const playTab   = document.getElementById('play-tab');
   const learnPane = document.getElementById('learn-content');
@@ -391,6 +406,7 @@ function flip(flipCard, newNumber) {
     learnPane.classList.remove('active');
   });
 
+  // — Slideshow data & elements —
   const slides       = [
     'slides/Slide1.JPG',
     'slides/Slide2.JPG',
@@ -400,6 +416,7 @@ function flip(flipCard, newNumber) {
     'slides/Slide6.JPG',
     'slides/Slide7.JPG',
     'slides/Slide8.JPG'
+    // …add your JPGs here
   ];
   let   currentIndex = 0;
 
@@ -444,10 +461,12 @@ function flip(flipCard, newNumber) {
     }
   });
 
+  // — More options stub —
   moreBtn.addEventListener('click', () => {
     console.log('More options clicked');
   });
 
+  // — Build overview thumbnails + labels —
   slides.forEach((src, idx) => {
     const item = document.createElement('div');
     item.className = 'overview-item';
@@ -500,4 +519,15 @@ downloadBtn.addEventListener('click', () => {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+});
+
+
+
+
+
+
+
+
+document.getElementById("menu-toggle").addEventListener("click", function () {
+  document.getElementById("site-nav").classList.toggle("show");
 });
