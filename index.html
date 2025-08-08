@@ -8,28 +8,12 @@
   <title>Team Kosovo</title>
 
   <link rel="icon" type="image/x-icon" href="pics/logo.jpg" >
+
   <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-pO8X5QZ6z3tJlKZ1+Z0/m+7tV+H+6Gxmx7g1jr/D1D+EiGCT0hB5HclZ6/1lY2hG7W6GFcM5pFKY2H92vGeE2w=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-pO8X5QZ6z3tJlKZ1+Z0/m+7tV+H+6Gxmx7g1jr/D1D+EiGCT0hB5HclZ6/1lY2hG7W6GFcM5pFKY2H92vGeE2w=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-
-
-
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css"
-/>
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -217,37 +201,100 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section id="country-section">
-  <div class="country-container">
-    <div class="country-tabs">
-      <button id="learn-tab" class="tab-button active">Learn</button>
-      <button id="play-tab" class="tab-button">Play</button>
-    </div>
-    <div class="country-content">
-      <div id="learn-content" class="content-pane active">
-        <iframe
-          src="https://queensuca-my.sharepoint.com/personal/23xbv1_queensu_ca/_layouts/15/Doc.aspx?sourcedoc={023be355-fb93-48aa-bb5d-a81b0ac61013}&amp;action=embedview&amp;wdAr=1.7777777777777777"
-          width="100%"
-          height="100%"
-          frameborder="0"
-          style="border:none;"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
-        <noscript>
-          <a href="https://queensuca-my.sharepoint.com/personal/23xbv1_queensu_ca/_layouts/15/Doc.aspx?sourcedoc={023be355-fb93-48aa-bb5d-a81b0ac61013}&amp;action=embedview">
-            Open the presentation
-          </a>
-        </noscript>
+    <div class="country-container">
+      <!-- Tabs -->
+      <div class="country-tabs">
+        <button id="learn-tab" class="tab-button active">Learn</button>
+        <button id="play-tab"  class="tab-button">Play</button>
       </div>
 
-      <div id="play-content" class="content-pane">
-        <iframe src="Game/Index1.html" scrolling="no" frameborder="0" allowfullscreen style="border:none; width:100%; height:100%; overflow:hidden;"></iframe>
+      <!-- Content Panes -->
+      <div class="country-content">
+        <!-- Learn: JPG Slideshow -->
+        <div id="learn-content" class="content-pane active">
+          <div class="slideshow">
+
+<!-- Overview Overlay -->
+<div id="overview-overlay" class="overview-overlay" role="dialog" aria-modal="true">
+  <div class="overview-panel">
+    <!-- BACK ARROW -->
+    <button id="overview-back" class="overview-back" aria-label="Back">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <!-- GRID OF THUMBS -->
+    <div id="overview-grid" class="overview-grid"></div>
+  </div>
+</div>
+
+
+            <img id="slide-img" src="slides/Slide1.JPG" alt="Slide 1" />
+            <div class="control-bar">
+              <div class="nav-controls">
+                <button id="prev-btn" aria-label="Prev slide">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span id="slide-counter">1 of 8</span>
+                <button id="next-btn" aria-label="Next slide">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="action-controls">
+                <!-- Overview icon -->
+                <button id="overview-btn" aria-label="See all slides">
+                  <i class="fas fa-th-large"></i>
+                </button>
+                <!-- Fullscreen -->
+                <button id="fullscreen-btn" aria-label="Toggle fullscreen">
+                  <i class="fas fa-expand"></i>
+                </button>
+                <!-- More options -->
+                <button id="more-btn" aria-label="More options">
+                  <i class="fas fa-download"></i>
+                </button>
+                
+                
+              
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Play: Embedded Game -->
+        <div id="play-content" class="content-pane">
+          <iframe
+            src="Game/Index1.html"
+            scrolling="no"
+            allowfullscreen
+            style="width:100%; height:100%; border:none; overflow:hidden;">
+          </iframe>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Overview Modal -->
+  <div id="overview-overlay" class="overview-overlay">
+    <div class="thumb-container">
+      <button id="close-overview" class="close-btn" aria-label="Close overview">
+        <i class="fas fa-times"></i>
+      </button>
+      <div id="thumb-grid" class="thumb-grid"></div>
     </div>
   </div>
-</section>
-
 
 
 
@@ -289,108 +336,135 @@
 
 <section id="social-section">
   <div class="social-container">
-    
-    
-    
-  <div class="container">
-        <div class="side-pattern left-pattern"></div>
-    <div class="side-pattern right-pattern"></div>
-    <!-- Profile Header -->
-    <div class="profile-header">
-      <div class="profile-pic">
-        <img src="pics/logo.jpg" alt="Profile Picture" />
-      </div>
-      <div class="profile-info">
-        <div class="top-row">
-          <h2>first_kosova</h2>
-          <a href="https://www.instagram.com/first_kosova/" target="_blank">
-            <button>Follow</button>
-          </a>
-          <a href="https://www.instagram.com/first_kosova/" target="_blank">
-            <button>Message</button>
-          </a>
-          <button id="linktree-btn">🔗</button>
+    <div class="container">
+      <div class="side-pattern left-pattern"></div>
+      <div class="side-pattern right-pattern"></div>
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <div class="profile-pic">
+          <img src="pics/logo.jpg" alt="Profile Picture" />
         </div>
-        <div class="stats">
-          <span><strong>283</strong> posts</span>
-          <span><strong>1,075</strong> followers</span>
-          <span><strong>393</strong> following</span>
-        </div>
-        <div class="bio">
-          <p>
-            <strong>FIRST Global Team Kosova</strong><br />
-            Science, Technology & Engineering<br />
-            Representing Kosova in <a href="https://www.instagram.com/f1rstglobal/" target="_blank">@firstglobal</a> 2025 💗xx<br />
-            Currently preparing for Panama 2025 👏🏻<br />
-            Lagjja Kalabria, Pristina 10000<br />
-            <!-- in your profile HTML -->
-<div class="social-links">
-  <a href="https://www.instagram.com/first_kosova/" target="_blank" rel="noopener">
-    <img src="pics/iggg.png" alt="Instagram logo">
-  </a>
-  <a href="https://www.facebook.com/fgcks" target="_blank" rel="noopener">
-    <img src="pics/facelogo-removebg-preview.png" alt="Facebook logo">
-  </a>
-  <a href="https://first.global/2024-nations/kosovo-2024/" target="_blank" rel="noopener">
-    <img src="pics/fgclogo.png" alt="FIRST Global Kosovo logo">
-  </a>
+        <div class="profile-info">
+          <div class="top-row">
+            <h2>first_kosova</h2>
+            <a href="https://www.instagram.com/first_kosova/" target="_blank">
+              <button>Follow</button>
+            </a>
+            <a href="https://www.instagram.com/first_kosova/" target="_blank">
+              <button>Message</button>
+            </a>
+            <button id="linktree-btn">🔗</button>
+          </div>
+          <div class="stats">
+            <span><strong>283</strong> posts</span>
+            <span><strong>1,075</strong> followers</span>
+            <span><strong>393</strong> following</span>
+          </div>
+<div class="bio">
+  <p>
+    <strong>FIRST Global Team Kosova</strong><br />
+    Science, Technology &amp; Engineering<br />
+    Representing Kosova in <a href="https://www.instagram.com/f1rstglobal/" target="_blank">@firstglobal</a> 2025 💗xx<br />
+    Currently preparing for Panama 2025 👏🏻<br />
+    <span class="location">Lagjja Kalabria, Pristina 10000</span>
+  </p>
 </div>
 
+            <div class="social-links">
+              <a href="https://www.instagram.com/first_kosova/" target="_blank" rel="noopener">
+                <img src="pics/iggg.png" alt="Instagram logo">
+              </a>
+              <a href="https://www.facebook.com/fgcks" target="_blank" rel="noopener">
+                <img src="pics/facelogo-removebg-preview.png" alt="Facebook logo">
+              </a>
+              <a href="https://first.global/2024-nations/kosovo-2024/" target="_blank" rel="noopener">
+                <img src="pics/fgclogo.png" alt="FIRST Global Kosovo logo">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Posts Grid -->
+      <div class="posts-grid">
+        <!-- Post 1: Video -->
+        <div class="post">
+          <video src="posts/video.mp4" autoplay muted loop></video>
+        </div>
 
+        <!-- Post 2: Image Carousel -->
+        <div class="post post-carousel" data-caption="On Thursday, July 17th, we went around Prishtina...">
+          <div class="image-frame">
+            <img src="posts/post2.jpg" class="active" />
+            <img src="posts/post2.1.jpg" />
+            <img src="posts/post2.2.jpg" />
+            <img src="posts/post2.3.jpg" />
+            <img src="posts/post2.4.jpg" />
+            <img src="posts/post2.5.jpg" />
+            <div class="nav left">&#10094;</div>
+            <div class="nav right">&#10095;</div>
+          </div>
+        </div>
 
-          </p>
+        <!-- Post 3: Image Carousel -->
+        <div class="post post-carousel" data-caption="📞 Po ju thërrasim të na bashkangjiteni!">
+          <div class="image-frame">
+            <img src="posts/post3.1.jpg" class="active" />
+            <img src="posts/post3.2.jpg" />
+            <img src="posts/post3.3.jpg" />
+            <div class="nav left">&#10094;</div>
+            <div class="nav right">&#10095;</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Posts Grid -->
-    <div class="posts-grid">
-      <!-- Post 1: Video -->
-      <div class="post">
-        <video src="posts/video.mp4" autoplay muted loop></video>
-      </div>
-
-      <!-- Post 2: Image Carousel -->
-      <div class="post post-carousel" data-caption="On Thursday, July 17th, we went around Prishtina..."  >
-        <div class="image-frame">
-          <img src="posts/post2.jpg" class="active" />
-           <img src="posts/post2.1.jpg" />
-          <img src="posts/post2.2.jpg" />
-          <img src="posts/post2.3.jpg" />
-          <img src="posts/post2.4.jpg" />
-          <img src="posts/post2.5.jpg" />
-          <div class="nav left">&#10094;</div>
-          <div class="nav right">&#10095;</div>
-        </div>
-      </div>
-
-      <!-- Post 3: Image Carousel -->
-      <div class="post post-carousel" data-caption="📞 Po ju thërrasim të na bashkangjiteni!"  >
-        <div class="image-frame">
-          <img src="posts/post3.1.jpg" class="active" />
-          <img src="posts/post3.2.jpg" />
-          <img src="posts/post3.3.jpg" />
-          <div class="nav left">&#10094;</div>
-          <div class="nav right">&#10095;</div>
-        </div>
+    <!-- Linktree Modal -->
+    <div class="modal" id="linktree-modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Links</h3>
+        <ul>
+          <li><a href="https://www.facebook.com/fgcks/?ref=_xav_ig_profile_page_web#" target="_blank">🌐 FIRST Global Kosovo</a></li>
+          <li><a href="https://first.global/" target="_blank">🌐 www.first.global</a></li>
+          <li><a href="https://form.jotform.com/251735732507155" target="_blank">📝 Robotics Is A Sport Petition</a></li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- Linktree Modal -->
-  <div class="modal" id="linktree-modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3>Links</h3>
-      <ul>
-        <li><a href="https://www.facebook.com/fgcks/?ref=_xav_ig_profile_page_web#" target="_blank">🌐 FIRST Global Kosovo</a></li>
-        <li><a href="https://first.global/" target="_blank">🌐 www.first.global</a></li>
-        <li><a href="https://form.jotform.com/251735732507155" target="_blank">📝 Robotics Is A Sport Petition</a></li>
-      </ul>
+  <!-- Sponsor Section -->
+  <div class="sponsor-container">
+    <h2 class="sponsor-title">Thanks to our Sponsor</h2>
+    <div class="sponsor-inner">
+      <img src="pics/UBTLOGO.png" alt="UBT Logo" class="sponsor-logo">
+      <h3 class="sponsor-name">UBT – University for Business and Technology</h3>
+      <div class="sponsor-facts">
+        <div class="fact-box">
+          <i class="fact-icon fa fa-trophy" aria-hidden="true"></i><br>
+          <span class="fact-number">1ST</span>
+          <p class="fact-label">IN KOSOVA FOR SCIENCE<br><small>(by SCImago)</small></p>
+        </div>
+        <div class="fact-box">
+          <i class="fact-icon fa fa-handshake-o" aria-hidden="true"></i><br>
+          <span class="fact-number">500+</span>
+          <p class="fact-label">INTERNATIONAL PARTNERSHIPS</p>
+        </div>
+        <div class="fact-box">
+          <i class="fact-icon fa fa-graduation-cap" aria-hidden="true"></i><br>
+          <span class="fact-number">10 000+</span>
+          <p class="fact-label">ALUMNI</p>
+        </div>
+      </div>
+      <p class="sponsor-text">
+        UBT is Kosovo’s leading private university, recognized for excellence in science,
+        technology, and entrepreneurship. With extensive international partnerships and
+        modern labs, it empowers students to innovate and succeed globally.
+      </p>
+      <a href="https://www.ubt-uni.net/en/home/" target="_blank" rel="noopener" class="sponsor-link">
+        Learn More
+      </a>
     </div>
-  </div>
-  
   </div>
 </section>
 
@@ -429,68 +503,9 @@
 
 
 
-
-
-
-<section id="sponsor-section">
-  <h2 class="sponsor-title">Thanks to our Sponsor</h2>
-
-  <div class="sponsor-inner">
-    <img src="pics/UBTLOGO.png" alt="UBT Logo" class="sponsor-logo">
-
-    <h3 class="sponsor-name">UBT – University for Business and Technology</h3>
-
-    <div class="sponsor-facts">
-      <div class="fact-box">
-        <i class="fact-icon fa fa-trophy" aria-hidden="true"></i>
-        <br>
-        <span class="fact-number">1ST</span>
-        <p class="fact-label">IN KOSOVA FOR SCIENCE<br><small>(by SCImago)</small></p>
-      </div>
-
-      <div class="fact-box">
-        <i class="fact-icon fa fa-handshake-o" aria-hidden="true"></i>
-        <br>
-        <span class="fact-number">500+</span>
-        <p class="fact-label">INTERNATIONAL PARTNERSHIPS</p>
-      </div>
-
-      <div class="fact-box">
-        <i class="fact-icon fa fa-graduation-cap" aria-hidden="true"></i>
-        <br>
-        <span class="fact-number">10000+</span>
-        <p class="fact-label">ALUMNI</p>
-      </div>
-    </div>
-
-    <p class="sponsor-text">
-      UBT is Kosovo’s leading private university, recognized for excellence in science,
-      technology, and entrepreneurship. With extensive international partnerships and
-      modern labs, it empowers students to innovate and succeed globally.
-    </p>
-
-    <a class="sponsor-link" href="https://www.ubt-uni.net/en/home/" target="_blank" rel="noopener">
-      Learn More
-    </a>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
 <footer class="footer">
-  <div class="footer-left">This website was made with love</div>
-  <div class="footer-center">See you in Panama 🇵🇦!</div>
+  <div class="footer-left">This website was made with love 🤍</div>
+  <div class="footer-center">See you in Panama!</div>
   <div class="footer-right">
     <a href="https://www.instagram.com/first_kosova/" >
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="footer-icon">
@@ -503,7 +518,6 @@
     </a>
   </div>
 </footer>
--->
 
 
 
