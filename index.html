@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,13 +71,21 @@
     <span class="header-title">Team Kosova</span>
   </div>
 
-  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  <button class="menu-toggle burger" id="menu-toggle" aria-label="Toggle menu">
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</button>
+
+
+
 
   <nav class="site-nav" id="site-nav">
     <a href="#team-section">Team</a>
     <a href="#country-section">Country</a>
-    <a href="#social-section">Socials</a>
+    <a href="#social-section">Social</a>
   </nav>
+
 </header>
 
 
@@ -91,7 +100,7 @@
   <div class="greeting-title">
     <h1 id="greeting">Përshëndetje</h1>
   </div>
-  <p>Inspiring students to build the future.</p>
+  <p><strong>Inspiring students to build the future.</strong></p>
 </div>
 
 
@@ -352,7 +361,7 @@
             <a href="https://www.instagram.com/first_kosova/" target="_blank">
               <button>Message</button>
             </a>
-            <button id="linktree-btn">🔗</button>
+      <!--      <button id="linktree-btn">🔗</button>   -->
           </div>
           <div class="stats">
             <span><strong>283</strong> posts</span>
@@ -523,18 +532,21 @@
 
 
 
-    <script>
-  document.getElementById("menu-toggle").addEventListener("click", function () {
-  document.getElementById("site-nav").classList.toggle("show");
-});
-</script>
+
   <script src="script.js"></script>
   <script src="script33.js"></script>
+  <script>
+  document.getElementById("menu-toggle")
+  .addEventListener("click", function () {
+    const nav = document.getElementById("site-nav");
+    nav.classList.toggle("show");
+    // → accessibility hint: flip aria-expanded
+    const expanded = this.getAttribute("aria-expanded") === "true";
+    this.setAttribute("aria-expanded", String(!expanded));
+});
+
+</script>
 
 
 </body>
 </html>
-
-
-
-
