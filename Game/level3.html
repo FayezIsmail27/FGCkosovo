@@ -14,7 +14,7 @@
       font-family: sans-serif;
     }
     #level3-container {
-      position: relative;
+      
       width: 60%;
       height: 20%;
       margin-top: 2rem;
@@ -32,7 +32,6 @@
             background-color: #ffffff;
     }
     #no-btn {
-      position: absolute;
       left: 80%;
       top: 50%;
       transform: translate(-50%, -50%);
@@ -157,6 +156,52 @@
   #level3-container { position: relative; }
 #no-btn { position: absolute; }
 
+
+
+
+/* ——— Desktop: side-by-side ——— */
+@media (min-width: 601px) {
+  #level3-container {
+    position: relative;
+    width: 60%;
+    height: 20%;
+    margin-top: 2rem;
+  }
+  #yes-btn {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #no-btn {
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ——— Mobile: stack vertically ——— */
+@media (max-width: 600px) {
+  #level3-container {
+    position: static;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  #yes-btn,
+  #no-btn {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.1rem;
+  }
+}
+
 </style>
 
 
@@ -172,13 +217,13 @@
 
 <div id="win-card" class="smooth-card" aria-hidden="true">
   <button id="close-win-card" aria-label="Close">×</button>
-  <h2>🎉 Congratulations, you won!</h2>
-  <p>Thanks for playing!</p>
+  <h2>🎉 Thanks for playing!</h2>
+  <p></p>
 
   <hr class="card-sep">
 
   <h3>Help Make Robotics a Sport</h3>
-  <p>Think robotics deserves to be recognized as a sport? Add your voice:</p>
+  <p>Think robotics deserves to be recognized as a sport?</p>
   <a
     href="https://form.jotform.com/251735732507155"
     target="_blank"
