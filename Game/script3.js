@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeWin    = document.getElementById('close-win-card');
   const messageDiv  = document.getElementById('message');
 
-  // Messages for mobile taps
   const mobileMsgs = [
     'No',
     'Try again',
@@ -16,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   let msgIndex = 0;
 
-  // Utility to detect phone viewport
   const isMobile = () => window.matchMedia('(max-width:600px)').matches;
 
-  // ————— Win-card logic —————
   yesBtn.addEventListener('click', () => {
     winCard.classList.add('show');
     winCard.setAttribute('aria-hidden', 'false');
@@ -30,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     winCard.setAttribute('aria-hidden', 'true');
   });
 
-  // Compute an element’s box relative to the container
   function getRelativeRect(elem) {
     const cR = container.getBoundingClientRect();
     const eR = elem.getBoundingClientRect();
@@ -44,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // Teleport “No” to a random spot inside container, avoiding “Yes”
   function evade() {
     const maxX    = container.clientWidth  - noBtn.offsetWidth;
     const maxY    = container.clientHeight - noBtn.offsetHeight;
@@ -66,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     noBtn.style.top  = `${y}px`;
   }
 
-  // — Desktop: teleport whenever pointer overlaps the “No” button
   if (!isMobile()) {
     container.addEventListener('mousemove', e => {
       const r = noBtn.getBoundingClientRect();
@@ -81,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // — Mobile: on each tap/click, show next message (then hide at end)
   else {
     const handleMobileNo = e => {
       e.preventDefault();
