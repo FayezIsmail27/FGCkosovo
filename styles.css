@@ -2,10 +2,42 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; font-family: Arial, sans-serif; }
 
-#bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(129, 163, 218, 0.4); z-index: 1; }
-.main-content { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; gap: 2rem; height: 100%; padding: 0 5%; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
-.logo { max-width: 200px; border-radius: 50%;}
+#bg-video { position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  z-index: 0; 
+}
+
+.overlay { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(129, 163, 218, 0.4); 
+  z-index: 1; 
+}
+
+.main-content { 
+  position: relative; 
+  z-index: 2; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 2rem; 
+  height: 100%; 
+  padding: 0 5%; 
+  color: white; 
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7); 
+}
+
+.logo { 
+  max-width: 200px; 
+  border-radius: 50%;
+}
 
 
 .greeting {
@@ -39,6 +71,7 @@ html, body { height: 100%; font-family: Arial, sans-serif; }
   font-size: 1.5rem;
   margin: 0;
   white-space: nowrap;
+  color: #ffffff;
 }
 
 .greeting {
@@ -64,31 +97,147 @@ html, body { height: 100%; font-family: Arial, sans-serif; }
 
 
 
+#team-section { 
+  position: relative; 
+  padding: 4rem 0; 
+  background-color: rgba(40,53,112,255); 
+  z-index: 2; 
+  color: #fafafa;
+}
 
-#team-section { position: relative; padding: 4rem 0; background-color: rgba(40,53,112,255); z-index: 2; color: #fafafa;}
-#team-title { position: absolute; top: 3rem; left: 15%; font-family: 'Permanent Marker', cursive; font-size: 2.5rem; color: white; }
-.team-container { width: 1100px; height: 400px; margin: 0 auto; position: relative; overflow: visible; }
-.member { position: relative; display: flex; width: 100%; height: 100%; align-items: center; justify-content: space-between;color: #fafafa; }
-.member-details { flex: 1; padding: 20 rem; color: #fafafa;}
-.member-details h2 { font-size: 2.5rem; margin-bottom: 0.5rem;color: #ffff;}
-.member-details h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #fafafa;}
-.member-details p { font-size: 1rem; margin-bottom: 0.5rem; color: #fafafa;}
-.member-teams { display: flex; align-items: center; margin-top: 0.5rem; color: #fafafa; }
-.team-icon { width: 24px; margin-right: 0.5rem; }
-.team-separator { margin: 0 0.5rem; color: white; }
-.member-photo img { max-width: 500px; border-radius: 8px; margin-left: 20%; }
+#team-title { 
+  position: absolute; 
+  top: 3rem; 
+  left: 15%; 
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.5rem; 
+  color: white; 
+}
 
-.arrow { position: relative; width: 30px; height: 30px; cursor: pointer; transition: 0.5s; overflow: hidden; z-index: 3; }
-.arrow:hover { border: solid 2px white; border-radius: 50%; }
-.arrow:after { position: absolute; content: ""; width: 20px; height: 15px; top: -1px; border-bottom: solid 2px #fafafa; transform: translateX(4px); }
-.arrow:before { position: absolute; content: ""; width: 8px; height: 8px; border-top: solid 2px #fafafa; border-left: solid 2px #fafafa; top: 50%; left: 2px; transform-origin: 0 0; transform: rotateZ(-45deg); }
-.arrow:hover:before { animation: aniArrow01 1s cubic-bezier(0,0.6,1,0.4) infinite 0.5s; }
-.arrow:hover:after { animation: aniArrow02 1s cubic-bezier(0,0.6,1,0.4) infinite 0.5s; }
-.arrow.prev { left: -20px; }
-.arrow.next { right: -20px; transform: rotate(180deg); }
+.team-container { 
+  width: 1100px; 
+  height: 400px; 
+  margin: 0 auto; 
+  position: relative; 
+  overflow: visible; 
+}
 
-@keyframes aniArrow01 { 0% { transform: rotateZ(-45deg) translate(30px,30px); } 100% { transform: rotateZ(-45deg) translate(-35px,-35px); } }
-@keyframes aniArrow02 { 0% { transform: translateX(45px); } 100% { transform: translateX(-44px); } }
+.member { 
+  position: relative; 
+  display: flex; 
+  width: 100%; 
+  height: 100%; 
+  align-items: center; 
+  justify-content: space-between;
+  color: #fafafa; 
+}
+
+.member-details { 
+  flex: 1; 
+  padding: 20 rem; 
+  color: #fafafa;
+}
+
+.member-details h2 { 
+  font-size: 2.5rem; 
+  margin-bottom: 0.5rem;
+  color: #ffff;
+}
+
+.member-details h3 { 
+  font-size: 1.5rem;
+  margin-bottom: 1rem; 
+  color: #fafafa;
+}
+
+.member-details p { 
+  font-size: 1rem; 
+  margin-bottom: 0.5rem; 
+  color: #fafafa;
+}
+
+.member-teams { 
+  display: flex; 
+  align-items: center; 
+  margin-top: 0.5rem; 
+  color: #fafafa; 
+}
+
+.team-icon { 
+  width: 24px; 
+  margin-right: 0.5rem; 
+}
+
+.team-separator { 
+  margin: 0 0.5rem; 
+  color: white; 
+}
+
+.member-photo img { 
+  max-width: 500px; 
+  border-radius: 8px; 
+  margin-left: 20%; 
+}
+
+
+
+.arrow {
+  position: absolute;
+  box-sizing: border-box;
+  width: 3vmin;            /* smaller size */
+  height: 3vmin;
+  cursor: pointer;
+}
+
+/* flipped +180°: prev now points right-to-left, next left-to-right */
+.arrow.prev {
+  left: -4rem;             /* push farther to the left */
+  top: 50%;
+  transform: translateY(-50%) rotate(225deg);
+}
+.arrow.next {
+  right: -4rem;            /* push farther to the right */
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* thinner strokes to match smaller arrows */
+.arrow::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-width: .5vmin .5vmin 0 0;
+  border-style: solid;
+  border-color: #fafafa;
+  transform-origin: 100% 0;
+  transition: .2s ease;
+}
+.arrow::after {
+  content: '';
+  position: relative;
+  top: -100%;
+  float: left;
+  width: 100%;
+  height: 100%;
+  border-width: 0 .5vmin 0 0;
+  border-style: solid;
+  border-color: #fafafa;
+  transform-origin: 100% 0;
+  transition: .2s ease;
+}
+
+/* optional hover effect */
+.arrow:hover::before {
+  transform: scale(.6);
+  border-color: orange;
+}
+.arrow:hover::after {
+  transform: rotate(45deg);
+  border-color: orange;
+  height: 115%;
+}
+
 
 /* Country */
 #country-section {
@@ -414,6 +563,10 @@ html, body { height: 100%; font-family: Arial, sans-serif; }
   text-align:center;
 }
 
+
+
+
+
 .fact-icon{ font-size:2.4rem; margin-bottom:.6rem; }
 .fact-number{ font-size:1.6rem; font-weight:700; margin-bottom:.3rem; }
 .fact-label{ font-size:.9rem; line-height:1.25; font-weight:600; }
@@ -445,10 +598,6 @@ html, body { height: 100%; font-family: Arial, sans-serif; }
   color:#fff;
   transform:translateY(-2px);
 }
-
-
-
-
 
 
 
@@ -497,6 +646,38 @@ html, body { height: 100%; font-family: Arial, sans-serif; }
   transform: scale(1.15);
 }
 
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex: none;
+    width: 100%;
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 0.25rem 0;
+  }
+
+  .footer-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+  .footer-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0;       
+  }
+}
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -520,34 +701,25 @@ html {
 }
 
 
-
-
-
 @media only screen and (max-width: 768px) {
-  /* Remove the side‐patterns on phones */
   #country-section::before,
   #country-section::after {
     display: none;
   }
 
-  /* Make the country‐container full-width and match the section color */
   .country-container {
     width: 100%;
     max-width: none;
-    margin: 0;                 /* remove auto-centering gutters */
+    margin: 0;                
     background-color: #86A0B0;
-    border-radius: 0;          /* optional: square corners if you prefer */
-    padding: 1rem 0;           /* you can tweak vertical padding here */
+    border-radius: 0;          
+    padding: 1rem 0;         
   }
 
-  /* Increase the embedded area’s height */
   .country-content {
-    height: 800px;             /* up from 600px; adjust as needed */
+    height: 800px;            
   }
 }
-
-
-
 
 
 
@@ -602,7 +774,6 @@ html {
   margin-top: 2rem;
 }
 
-/* All posts same height alignment */
 .post {
   position: relative;
   width: 280px;
@@ -613,7 +784,6 @@ html {
 }
 
 
-/* Image wrapper */
 .image-frame {
   position: relative;
   width: 100%;
@@ -623,7 +793,6 @@ html {
   z-index: 1;
 }
 
-/* Images inside carousels */
 .image-frame img {
   position: absolute;
   width: 100%;
@@ -638,7 +807,6 @@ html {
   position: relative;
 }
 
-/* Nav arrows */
 .nav {
   position: absolute;
   top: 50%;
@@ -660,7 +828,6 @@ html {
 .nav.left { left: 10px; }
 .nav.right { right: 10px; }
 
-/* Caption box under the post */
 .post:hover::after {
   content: attr(data-user) " • " attr(data-caption) " CulturalShowcase with Team Kosova🤍.. " attr(data-likes);
   position: absolute;
@@ -691,7 +858,7 @@ html {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  z-index: 1; /* ensure it's above the hover background */
+  z-index: 1; 
   position: relative;
 }
 
@@ -704,13 +871,13 @@ html {
   bottom: -10px;
   background: white;
   border-radius: 15px;
-  z-index: 0; /* behind video/image */
+  z-index: 0; 
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 
 .modal {
-  display: none; /* This hides it initially */
+  display: none; 
   position: fixed;
   z-index: 999;
   padding-top: 60px;
@@ -867,13 +1034,10 @@ html {
   }
 
 
-
-  /* Side patterns removed on phone */
   .side-pattern {
     display: none;
   }
 
-  /* Keep posts in one horizontal scroll row */
   .posts-grid {
     display: flex;
     flex-wrap: nowrap;
@@ -893,15 +1057,6 @@ html {
     display: none;
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -940,7 +1095,7 @@ html {
 }
 
 .social-container {
-  max-width: 1050px; /* slightly larger */
+  max-width: 1050px; 
   margin: 0 auto;
   padding: 2rem 1rem;
   position: relative;
@@ -1203,13 +1358,13 @@ html {
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  margin-top: 0.5rem; /* adjust as needed */
+  margin-top: 0.5rem; 
 }
 
 .social-links i,
 .social-links img {
-  font-size: 32px;      /* for the font-awesome icons */
-  width: 32px;          /* for the FGC image */
+  font-size: 32px;      
+  width: 32px;          
   height: 32px;
   object-fit: contain;
   transition: opacity 0.2s;
@@ -1219,17 +1374,6 @@ html {
 .social-links a:hover img {
   opacity: 0.8;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 #fc-section {
   padding: 2rem 0;
@@ -1354,49 +1498,6 @@ html {
 
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #social-section .sponsor-container {
@@ -1601,49 +1702,17 @@ html {
 @media only screen and (max-width: 600px) {
 
   #social-section .profile-info .top-row {
-    display: flex !important;          /* make sure it’s a flex container */
-    flex-wrap: wrap !important;        /* allow the buttons to wrap */
-    justify-content: center !important;/* center them on the 2nd line */
-    gap: 0.5rem;                       /* optional spacing between buttons */
+    display: flex !important;          
+    flex-wrap: wrap !important;       
+    justify-content: center !important;
+    gap: 0.5rem;                      
   }
 
   #social-section .profile-info .top-row h2 {
-    flex: 0 0 100% !important;        /* full-width basis */
-    margin-bottom: 0.5rem;            /* small gap below the name */
+    flex: 0 0 100% !important;        
+    margin-bottom: 0.5rem;           
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     .country-tabs {
@@ -1668,7 +1737,7 @@ html {
 
     .country-content {
       position: relative;
-      height: 500px; /* adjust as needed */
+      height: 500px; 
       background: #000;
     }
     .content-pane {
@@ -1690,7 +1759,7 @@ html {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      background: #111; /* letterboxing color if aspect ratios differ */
+      background: #111; 
     }
 
     .control-bar {
@@ -1803,7 +1872,7 @@ html {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
-  display: none;               /* shown via JS */
+  display: none;               
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -1812,7 +1881,7 @@ html {
 .overview-modal {
   position: relative;
   background: #242424;
-  border: 8px solid #A3B3C9;   /* match your page’s light border */
+  border: 8px solid #A3B3C9; 
   border-radius: 8px;
   padding: 1rem;
   max-width: 90vw;
@@ -1836,7 +1905,7 @@ html {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
-  margin-top: 2rem;  /* push below the back arrow */
+  margin-top: 2rem;  
 }
 
 .overview-item img {
@@ -1916,7 +1985,7 @@ html {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
   gap: 1rem;
-  margin-top: 2rem; /* leave space for the back arrow */
+  margin-top: 2rem; 
 }
 .overview-grid .overview-item {
   text-align: center;
@@ -1931,7 +2000,7 @@ html {
 }
 .overview-grid img:hover,
 .overview-grid img:focus {
-  border-color: #007bff; /* your accent color */
+  border-color: #007bff; 
   outline: none;
 }
 .overview-item span {
@@ -1940,10 +2009,6 @@ html {
   color: #fff;
   font-size: 0.85rem;
 }
-
-
-
-
 
 button[data-tooltip] {
   position: relative;
@@ -1975,19 +2040,9 @@ button[data-tooltip]:focus::after {
   opacity: 1;
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Hamburger button base */
 .menu-toggle {
-  display: none;             /* hidden on desktop */
+  display: none;             
   flex-direction: column;
   justify-content: space-between;
   width: 24px;
@@ -1995,17 +2050,16 @@ button[data-tooltip]:focus::after {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1000;             /* sit above everything */
+  z-index: 1000;            
 }
 .menu-toggle .line {
   width: 100%;
   height: 3px;
-  background-color: #4a73b5; /* match your brand color */
+  background-color: #ffffff; 
   border-radius: 2px;
   transition: background-color 0.3s;
 }
 
-/* Mobile: show hamburger and slide‐in menu */
 @media (max-width: 600px) {
   .menu-toggle {
     display: flex;
@@ -2029,3 +2083,41 @@ button[data-tooltip]:focus::after {
     color: #fff;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
