@@ -1,12 +1,45 @@
 // script.js
-
-// 1. Greetings rotation (unchanged)
 const greetings = [
-  'Përshëndetje!', 'Hi!', 'こんにちは!', '안녕하세요!', '你好!',
-  '!مرحبا', 'नमस्ते!', 'Привет!', 'Bonjour!', 'Hola!',
-  'Hallo!', 'Ciao!', 'Olá!', 'Γειά σου!',
-  'Merhaba!', 'Hej!', 'Jambo!', 'नमस्कार!', 'Salaam!'
+  'Përshëndetje!', // Albanian
+  'Hi!', // English
+  'こんにちは!', // Japanese
+  '안녕하세요!', // Korean
+  '你好!', // Chinese (Mandarin)
+  '!مرحبا', // Arabic
+  'नमस्ते!', // Hindi
+  'Привет!', // Russian
+  'Bonjour!', // French
+  'Hola!', // Spanish
+  'Hallo!', // German
+  'Ciao!', // Italian
+  'Olá!', // Portuguese
+  'Γειά σου!', // Greek
+  'Merhaba!', // Turkish
+  'Hej!', // Swedish
+  'Jambo!', // Swahili
+  'नमस्कार!', // Marathi
+  'Salaam!', // Persian
+  'Sawasdee!', // Thai
+  'Selamat pagi!', // Indonesian
+  'Dzień dobry!', // Polish
+  'Xin chào!', // Vietnamese
+  'Kia ora!', // Māori
+  'Kamusta!', // Filipino / Tagalog
+  'Aloha!', // Hawaiian
+  'Zdravo!', // Serbian / Croatian / Bosnian
+  'Sveiki!', // Latvian
+  'Tere!', // Estonian
+  'Moi!', // Finnish
+  'Halló!', // Icelandic
+  'Dobry den!', // Czech
+  'Ahoy!', // Slovak
+  'Saluton!', // Esperanto
+  'Mingalaba!', // Burmese
+  'Chào bạn!', // Vietnamese informal
+  'Sawubona!', // Zulu
+  'Habari!', // Swahili
 ];
+
 let greetIndex = 0;
 const greetEl = document.getElementById('greeting');
 setInterval(() => {
@@ -15,7 +48,6 @@ setInterval(() => {
 }, 1500);
 
 
-// 2. Members data, now with a `symbols` array instead of football/F1
 const members = [
   {
     name: 'Leona',
@@ -531,3 +563,4 @@ downloadBtn.addEventListener('click', () => {
 document.getElementById("menu-toggle").addEventListener("click", function () {
   document.getElementById("site-nav").classList.toggle("show");
 });
+
